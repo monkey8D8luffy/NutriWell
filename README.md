@@ -1,6 +1,6 @@
 NutriWell AI Coach Chatbot
 Live Chatbot: [Insert your Dialogflow Messenger URL here]
-GitHub Repo: https://github.com/[YourUsername]/IDAI101-[YourID]-[YourName]
+GitHub Repo: https://github.com/monkey8D8luffy/NutriWell
 Overview
 AI-powered virtual nutrition coach built with Google Dialogflow ES. Helps users set fitness goals, get personalized meal plans, and track wellness habits.
 Features
