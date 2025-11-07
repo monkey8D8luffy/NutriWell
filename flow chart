@@ -1,0 +1,107 @@
+┌─────────────────────────────────────────────────────────┐
+│  USER ENTERS: "Hi" or opens widget                      │
+└────────────────────┬────────────────────────────────────┘
+                     ↓
+┌─────────────────────────────────────────────────────────┐
+│  WELCOME INTENT                                         │
+│  Bot: "Hi! I'm NutriWell Coach. What would you like to  │
+│        work on today?"                                  │
+│  Shows Chips: [Set Goals] [Get Meal Plan] [Reminders]   │
+└────────────────────┬────────────────────────────────────┘
+                     ↓
+         ┌───────────┴────────────┐
+         │                        │
+    User clicks            User types
+    "Set My Goals"         "Meal plan please"
+         │                        │
+         ↓                        ↓
+┌─────────────────┐      ┌─────────────────────┐
+│ SET FITNESS GOAL│      │ REQUEST MEAL PLAN   │
+│ Intent          │      │ Intent (no context) │
+└────────┬────────┘      └──────────┬──────────┘
+         │                         │
+         ↓                         ↓
+┌──────────────────────────────────────────────┐
+│ Bot asks: "What fitness goal? (weight loss/  │
+│           muscle gain/maintenance/endurance)"│
+└─────────────────┬────────────────────────────┘
+                  ↓
+    User responds: "lose weight"
+                  ↓
+┌──────────────────────────────────────────────┐
+│ SET DIETARY RESTRICTION Intent                 │
+│ Input Context: awaiting_dietary_restrictions   │
+│ Bot: "Any dietary restrictions? (vegan/veg/   │
+│      gluten-free/dairy-free/keto)"           │
+└─────────────────┬────────────────────────────┘
+                  ↓
+    User says: "vegan"
+                  ↓
+┌──────────────────────────────────────────────┐
+│ SET BUDGET PREFERENCE Intent                   │
+│ Input Context: awaiting_budget                 │
+│ Bot: "What's your budget? (low/medium/high)" │
+└─────────────────┬────────────────────────────┘
+                  ↓
+    User says: "low"
+                  ↓
+┌──────────────────────────────────────────────┐
+│ SET TIME AVAILABILITY Intent                   │
+│ Input Context: awaiting_time                   │
+│ Bot: "How much prep time? (very quick/quick/  │
+│      moderate/long)"                           │
+└─────────────────┬────────────────────────────┘
+                  ↓
+    User says: "quick"
+                  ↓
+┌──────────────────────────────────────────────┐
+│ REQUEST MEAL PLAN Intent                       │
+│ Input Context: awaiting_meal_plan              │
+│ Bot: "Here's your plan! [Shows meals] Want    │
+│      reminders?"                               │
+│ Shows Chips: [Set Water Reminder] [Set       │
+│              Exercise Reminder] [Main Menu]  │
+└─────────────────┬────────────────────────────┘
+                  ↓
+         ┌────────┴────────┐
+         │                 │
+    User clicks      User clicks
+    "Set Water       "Set Exercise
+    Reminder"        Reminder"
+         │                 │
+         ↓                 ↓
+┌─────────────────┐ ┌──────────────────┐
+│ SET HYDRATION   │ │ SET EXERCISE     │
+│ REMINDER Intent │ │ REMINDER Intent  │
+└─────────────────┘ └──────────────────┘
+         │                 │
+         └────────┬────────┘
+                  ↓
+┌──────────────────────────────────────────────┐
+│ Bot: "Reminder set! What would you like to   │
+│      do next?"                                 │
+│ Shows Chips: [Track Progress] [Get Motivation│
+│              ] [View Meal Plan]              │
+└─────────────────┬────────────────────────────┘
+                  ↓
+         ┌────────┴────────────────┐
+         │                         │
+    User says           User says
+    "Track my weight"   "I need motivation"
+         │                         │
+         ↓                         ↓
+┌─────────────────┐      ┌──────────────────┐
+│ TRACK PROGRESS  │      │ REQUEST MOTIVATION│
+│ Intent          │      │ Intent           │
+└─────────────────┘      └──────────────────┘
+         │                         │
+         ↓                         ↓
+┌──────────────────────────────────────────────┐
+│ END OF CONVERSATION / FALLBACK TO MAIN MENU  │
+└──────────────────────────────────────────────┘
+
+KEY:
+┌───┐ = Intent (Bot Function)
+│   │ = User Input
+─── = Flow
+┴─┬─┴ = Decision/Branch
